@@ -1,1 +1,1 @@
-# OpenCV-Python-101
+# This is some basic examples of using OpenCV with Python
