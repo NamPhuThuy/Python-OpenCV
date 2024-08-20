@@ -38,10 +38,10 @@ def write_image_to_disk(path, image):
 
 
 if __name__ == "__main__":
-    bgr_image = load_image("../images/logo.png")
+    bgr_image = load_image("../images/wukong.jpg")
     show_image(bgr_image)
     
     gray_image = convert_to_grayscale(bgr_image)
     show_image(gray_image)
 
-    write_image_to_disk("../images/gray_logo.png", gray_image)
+    write_image_to_disk("../images/gray_wukong.jpg", gray_image)
