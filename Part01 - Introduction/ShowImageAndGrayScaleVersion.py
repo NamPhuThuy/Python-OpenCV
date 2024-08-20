@@ -12,6 +12,7 @@ def show_image(image):
     # First argument: window name.
     # Second argument: image to be displayed.
     # Each created window should have different window names.
+    image = cv2.resize(image, (400, 300))
     cv2.imshow("image", image)
 
     # cv2.waitKey() is a keyboard binding function.
