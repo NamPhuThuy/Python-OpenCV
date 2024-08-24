@@ -70,7 +70,7 @@ def show_with_matplotlib(color_img, title, pos):
 
 
 # Read grayscale image:
-gray_img = cv2.imread('shades.png', cv2.IMREAD_GRAYSCALE)
+gray_img = cv2.imread('../images/shades.png', cv2.IMREAD_GRAYSCALE)
 
 # Create the dimensions of the figure and set title:
 plt.figure(figsize=(14, 3))

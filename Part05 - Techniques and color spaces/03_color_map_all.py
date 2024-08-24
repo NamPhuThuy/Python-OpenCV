@@ -18,7 +18,7 @@ def show_with_matplotlib(color_img, title, pos):
 
 
 # We load the image using cv2.imread() and using 'cv2.IMREAD_GRAYSCALE' argument:
-gray_img = cv2.imread('lenna.png', cv2.IMREAD_GRAYSCALE)
+gray_img = cv2.imread('../images/lenna.png', cv2.IMREAD_GRAYSCALE)
 
 # We define all the color map names to be used later:
 colormaps = ["AUTUMN", "BONE", "JET", "WINTER", "RAINBOW", "OCEAN", "SUMMER", "SPRING", "COOL", "HSV", "HOT", "PINK",

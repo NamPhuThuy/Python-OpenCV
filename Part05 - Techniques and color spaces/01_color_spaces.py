@@ -20,7 +20,7 @@ def show_with_matplotlib(color_img, title, pos):
 
 
 # Load and display the original image:
-image = cv2.imread('color_spaces.png')
+image = cv2.imread('../images/color_spaces.png')
 
 # create a figure() object with appropriate size and title:
 plt.figure(figsize=(12, 5))

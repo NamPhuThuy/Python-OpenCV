@@ -23,10 +23,10 @@ plt.figure(figsize=(6, 5))
 plt.suptitle("Bitwise AND/OR between two images", fontsize=14, fontweight='bold')
 
 # Load the original image (250x250):
-image = cv2.imread('lenna_250.png')
+image = cv2.imread('../images/lenna_250.png')
 
 # Load the binary image (but as a GBR color image - with 3 channels) (250x250):
-binary_image = cv2.imread('opencv_binary_logo_250.png')
+binary_image = cv2.imread('../images/opencv_binary_logo_250.png')
 
 # Bitwise AND
 bitwise_and = cv2.bitwise_and(image, binary_image)

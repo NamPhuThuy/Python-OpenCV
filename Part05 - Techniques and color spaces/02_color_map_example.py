@@ -25,7 +25,7 @@ plt.figure(figsize=(8, 4))
 plt.suptitle("Colormaps", fontsize=14, fontweight='bold')
 
 # We load the image using cv2.imread() and using 'cv2.IMREAD_GRAYSCALE' argument:
-gray_img = cv2.imread('lenna.png', cv2.IMREAD_GRAYSCALE)
+gray_img = cv2.imread('../images/lenna.png', cv2.IMREAD_GRAYSCALE)
 
 # We apply the color map 'cv2.COLORMAP_HSV'
 img_COLORMAP_HSV = cv2.applyColorMap(gray_img, cv2.COLORMAP_HSV)

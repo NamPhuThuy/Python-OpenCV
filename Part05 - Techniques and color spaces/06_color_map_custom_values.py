@@ -150,7 +150,7 @@ def show_with_matplotlib(color_img, title, pos):
 
 
 # We load the image using cv2.imread() and using 'cv2.IMREAD_GRAYSCALE' argument:
-gray_img = cv2.imread('shades.png', cv2.IMREAD_GRAYSCALE)
+gray_img = cv2.imread('../images/shades.png', cv2.IMREAD_GRAYSCALE)
 
 # create a figure() object with appropriate size and title:
 plt.figure(figsize=(12, 2))
