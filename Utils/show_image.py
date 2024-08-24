@@ -10,7 +10,7 @@ def show_with_matplotlib(img_BGR, title):
     plt.title(title)
     plt.show()
 
-def show_images_with_titles_and_positions(image_BGR_list, title_list, pos_list, big_title):
+def show_images_with_titles_and_positions(image_BGR_list, title_list, pos_list, big_title, colsNum = 4):
     """
     Displays a list of images with specified titles and positions using Matplotlib subplots.
 
@@ -34,18 +34,13 @@ def show_images_with_titles_and_positions(image_BGR_list, title_list, pos_list, 
         title_list = [f"Image {i+1}" for i in range(num_images)]
     if not pos_list:
         pos_list = range(1, num_images + 1)
-
-    # calculate the cols and rows of the plot
-    # cols = int(np.ceil(np.sqrt(num_images)))
-    # rows = int(np.ceil(num_images / cols))
     
-    cols = 4
-    rows = int(np.ceil(num_images / cols))
+    rowsNum = int(np.ceil(num_images / colsNum))
 
     # Add images to the plot 
     for i, (image_BGR, title, pos) in enumerate(zip(image_BGR_list, title_list, pos_list)):
         image_RGB = image_BGR[:, :, ::-1]
-        plt.subplot(rows, cols, pos)
+        plt.subplot(rowsNum, colsNum, pos)
         plt.imshow(image_RGB)
         plt.title(title)
         plt.axis('off')

@@ -40,7 +40,7 @@ def cartonize_image(img, gray_mode=False):
 
     return cartoonized
 
-image = cv2.imread('../images/avatar.png')
+image = cv2.imread('../images/cat.jpg')
 
 # Call the created functions for sketching and cartoonizing images:
 custom_sketch_image = sketch_image(image)
