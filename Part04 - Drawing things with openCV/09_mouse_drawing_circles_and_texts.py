@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
-import constant_colors
+from Utils import constant_colors
+
 
 # Mouse callback function:
 def draw_text():

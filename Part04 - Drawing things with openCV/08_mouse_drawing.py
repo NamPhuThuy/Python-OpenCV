@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
-import constant_colors
+from Utils import constant_colors
+
 
 # This is the mouse callback function:
 def draw_circle(event, x, y, flags, param):

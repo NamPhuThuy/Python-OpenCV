@@ -1,7 +1,8 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-import constant_colors
+from Utils import constant_colors
+
 
 def show_with_matplotlib(img, title):
     # Convert BGR image to RGB:

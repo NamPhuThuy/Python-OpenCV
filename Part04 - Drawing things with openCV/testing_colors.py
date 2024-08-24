@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-import constant_colors
+from Utils import constant_colors
 
 # Getting red color:
 print("red: '{}'".format(constant_colors.RED))

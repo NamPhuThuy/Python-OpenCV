@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-import constant_colors
+from Utils import constant_colors
 
 # We create the canvas to draw: 400 x 400 pixels, 3 channels, uint8 (8-bit unsigned integers)
 # We set the background to black using np.zeros():

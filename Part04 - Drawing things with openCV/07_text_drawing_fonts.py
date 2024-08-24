@@ -1,18 +1,7 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-
-
-def show_with_matplotlib(img, title):
-    """Shows an image using matplotlib capabilities"""
-
-    # Convert BGR image to RGB:
-    img_RGB = img[:, :, ::-1]
-
-    # Show the image using matplotlib:
-    plt.imshow(img_RGB)
-    plt.title(title)
-    plt.show()
+import Utils
 
 
 # Dictionary containing some colors:
@@ -48,4 +37,4 @@ if __name__ == "__main__":
         position = (position[0], position[1] + 40)
     
     # Show image:
-    show_with_matplotlib(image, 'cv2.putText() using all OpenCV fonts')
+    Utils.show_image.show_with_matplotlib(image, 'cv2.putText() using all OpenCV fonts')

@@ -7,7 +7,7 @@ import cv2
 import numpy as np
 import datetime
 import math
-import constant_colors
+from Utils import constant_colors
 
 
 def array_to_tuple(arr):

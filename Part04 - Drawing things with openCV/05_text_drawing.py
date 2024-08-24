@@ -1,18 +1,8 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-import constant_colors
-
-
-def show_with_matplotlib(img_BGR, title):
-    # Convert BGR image to RGB:
-    img_RGB = img_BGR[:, :, ::-1]
-
-    # Show the image using matplotlib:
-    plt.imshow(img_RGB)
-    plt.title(title)
-    plt.show()
-
+from Utils import constant_colors
+from Utils import show_image
 
 if __name__ == "__main__":
     # Create the canvas to draw: 120 x 512 pixels, 3 channels, uint8 (8-bit unsigned integers)
@@ -32,4 +22,5 @@ if __name__ == "__main__":
                 cv2.LINE_AA)
     
     # Show image:
-    show_with_matplotlib(image, 'cv2.putText()')
+    show_image.show_with_matplotlib(image, 'cv2.putText()')
+    
