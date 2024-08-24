@@ -18,8 +18,6 @@ def show_with_matplotlib(color_img, title, pos):
     plt.title(title)
     plt.axis('off')
 
-
-# Load and display the original image:
 image = cv2.imread('../images/color_spaces.png')
 
 # create a figure() object with appropriate size and title:
