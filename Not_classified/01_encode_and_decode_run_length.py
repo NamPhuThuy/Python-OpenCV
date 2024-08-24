@@ -1,8 +1,6 @@
 import cv2
 import numpy as np
 
-
-
 def runlenghtdecodetest(thresh,m,n):
     y = np.zeros((m, n), dtype = np.uint8)
     count = 0
@@ -40,7 +38,7 @@ if __name__ == "__main__":
     '''
     ret, thresh = cv2.threshold(gray_image, 127, 255, cv2.THRESH_BINARY)
     
-    # Hiển thị ảnh nhị phân
+    # Display the binary image
     cv2.imshow('Binary Image', thresh)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
@@ -48,7 +46,7 @@ if __name__ == "__main__":
     
     np.savetxt('binary_image.txt', thresh, fmt='%d')
     
-    # Chuyển ảnh nhị phân thành mảng 1 chiều
+    # Convert binary image into 1-dimension array
     
     rl = runlenghtencodetest(thresh,thresh.shape[0],thresh.shape[1])
     print(rl)
