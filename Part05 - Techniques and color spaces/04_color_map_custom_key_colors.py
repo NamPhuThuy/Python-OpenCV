@@ -1,11 +1,8 @@
-"""
-Example for testing custom colors maps in OpenCV providing key color points
-"""
-
-# Import required packages:
+"""Example for testing custom colors maps in OpenCV providing key color points"""
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+from Utils import show_image
 
 # This dictionary is only for debugging purposes:
 dict_color = {0: "blue", 1: "green", 2: "red"}
@@ -13,7 +10,6 @@ dict_color = {0: "blue", 1: "green", 2: "red"}
 
 def build_lut(cmap):
     """Builds look up table based on 'key colors' using np.linspace()"""
-
     lut = np.empty(shape=(256, 3), dtype=np.uint8)
     # Show for debugging purposes:
     print("----------")
@@ -72,13 +68,6 @@ def show_with_matplotlib(color_img, title, pos):
 # Read grayscale image:
 gray_img = cv2.imread('../images/shades.png', cv2.IMREAD_GRAYSCALE)
 
-# Create the dimensions of the figure and set title:
-plt.figure(figsize=(14, 3))
-plt.suptitle("Custom color maps based on key colors", fontsize=14, fontweight='bold')
-
-# Show gray image:
-show_with_matplotlib(cv2.cvtColor(gray_img, cv2.COLOR_GRAY2BGR), "gray", 1)
-
 # Apply the custom color map - (b,g,r) values:
 custom_1 = apply_color_map_1(gray_img, ((0, (255, 0, 255)), (0.25, (255, 0, 180)), (0.5, (255, 0, 120)),
                                         (0.75, (255, 0, 60)), (1.0, (255, 0, 0))))
@@ -92,11 +81,9 @@ custom_3 = apply_color_map_2(gray_img, ((0, (255, 0, 255)), (0.25, (255, 0, 180)
 custom_4 = apply_color_map_2(gray_img, ((0, (0, 255, 128)), (0.25, (128, 184, 64)), (0.5, (255, 128, 0)),
                                         (0.75, (64, 128, 224)), (1.0, (0, 128, 255))))
 
-# Display all the resulting images:
-show_with_matplotlib(custom_1, "custom 1 using cv2.LUT()", 2)
-show_with_matplotlib(custom_2, "custom 2 using cv2.LUT()", 3)
-show_with_matplotlib(custom_3, "custom 3 using cv2.applyColorMap()", 5)
-show_with_matplotlib(custom_4, "custom 4 using using cv2.applyColorMap()", 6)
 
-# Show the Figure:
-plt.show()
+image_BGR_list = [cv2.cvtColor(gray_img, cv2.COLOR_GRAY2BGR), custom_1, custom_2, custom_3, custom_4]
+title_list = ["Gray", "custom 1 using cv2.LUT()", "custom 2 using cv2.LUT()", "custom 3 using cv2.applyColorMap()", "custom 4 using cv2.applyColorMap()"]
+pos_list = [1, 2, 3, 5, 6]
+
+show_image.show_images_with_titles_and_positions(image_BGR_list, title_list, pos_list, "Custom color maps based on key colors", 3)

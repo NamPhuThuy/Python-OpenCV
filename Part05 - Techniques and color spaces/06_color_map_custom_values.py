@@ -1,11 +1,9 @@
-"""
-Example for testing custom colors maps in OpenCV providing all values
-"""
+"""Example for testing custom colors maps in OpenCV providing all values"""
 
-# Import required packages:
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+from Utils import show_image
 
 
 def apply_custom_colormap_values(im_gray):
@@ -152,24 +150,14 @@ def show_with_matplotlib(color_img, title, pos):
 # We load the image using cv2.imread() and using 'cv2.IMREAD_GRAYSCALE' argument:
 gray_img = cv2.imread('../images/shades.png', cv2.IMREAD_GRAYSCALE)
 
-# create a figure() object with appropriate size and title:
-plt.figure(figsize=(12, 2))
-plt.suptitle("Custom colormaps providing all values", fontsize=14, fontweight='bold')
-
-# Show image:
-show_with_matplotlib(cv2.cvtColor(gray_img, cv2.COLOR_GRAY2BGR), "gray", 1)
-
 # Apply the custom color maps to the grayscale image:
 custom_rand_1 = apply_rand_custom_colormap_values(gray_img)
 custom_rand_2 = apply_rand_custom_colormap_values2(gray_img)
 custom_values_1 = apply_custom_colormap_values(gray_img)
 custom_values_2 = apply_custom_colormap_values2(gray_img)
 
-# Display all the resulting images:
-show_with_matplotlib(custom_rand_1, "cv2.applyColorMap()", 2)
-show_with_matplotlib(custom_rand_2, "cv2.LUT()", 3)
-show_with_matplotlib(custom_values_1, "cv2.applyColorMap()", 4)
-show_with_matplotlib(custom_values_2, "cv2.LUT()", 5)
+image_BGR_list = [cv2.cvtColor(gray_img, cv2.COLOR_GRAY2BGR), custom_rand_1, custom_rand_2, custom_values_1, custom_values_2]
+title_list = ["gray", "cv2.applyColorMap()", "cv2.LUT()", "cv2.applyColorMap()", "cv2.LUT()"]
+pos_list = [1, 2, 3, 4, 5]
 
-# Show the created image:
-plt.show()
+show_image.show_images_with_titles_and_positions(image_BGR_list, title_list, pos_list, "Custom colormaps providing all values", 3)

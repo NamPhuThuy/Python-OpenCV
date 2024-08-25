@@ -1,10 +1,9 @@
 """Example for testing custom colors maps in OpenCV and ploting the legend"""
 
-# Import required packages:
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-
+from Utils import show_image
 
 def build_lut_image(cmap, height):
     """Builds the legend image"""
@@ -53,25 +52,8 @@ def apply_color_map_2(gray, cmap):
     im_color = cv2.applyColorMap(gray, lut2)
     return im_color
 
-
-def show_with_matplotlib(color_img, title, pos):
-    """Shows an image using matplotlib capabilities"""
-
-    # Convert BGR image to RGB
-    img_RGB = color_img[:, :, ::-1]
-
-    ax = plt.subplot(2, 2, pos)
-    plt.imshow(img_RGB)
-    plt.title(title)
-    plt.axis('off')
-
-
 # Read grayscale image:
 gray_img = cv2.imread('../images/lenna.png', cv2.IMREAD_GRAYSCALE)
-
-# Create the dimensions of the figure and set title:
-plt.figure(figsize=(14, 6))
-plt.suptitle("Custom color maps based on key colors and legend", fontsize=14, fontweight='bold')
 
 # Build the color maps (b,g,r) values:
 custom_1 = apply_color_map_1(gray_img, ((0, (255, 0, 255)), (0.25, (255, 0, 180)), (0.5, (255, 0, 120)),
@@ -87,11 +69,8 @@ legend_1 = build_lut_image(((0, (255, 0, 255)), (0.25, (255, 0, 180)), (0.5, (25
 legend_2 = build_lut_image(((0, (0, 255, 128)), (0.25, (128, 184, 64)), (0.5, (255, 128, 0)),
                             (0.75, (64, 128, 224)), (1.0, (0, 128, 255))), 20)
 
-# Display all the resulting images:
-show_with_matplotlib(legend_1, "", 1)
-show_with_matplotlib(custom_1, "", 3)
-show_with_matplotlib(legend_2, "", 2)
-show_with_matplotlib(custom_2, "", 4)
+image_BGR_list = [legend_1, custom_1, legend_2, custom_2]
+title_list = ["", "", "", ""]
+pos_list = [1, 3, 2, 4]
 
-# Show the Figure:
-plt.show()
+show_image.show_images_with_titles_and_positions(image_BGR_list, title_list, pos_list, "Custom color maps based on key colors and legend", 2)

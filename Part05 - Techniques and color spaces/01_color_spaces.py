@@ -1,28 +1,9 @@
-"""
-Introduction to color spaces in OpenCV
-"""
-
-# Import required packages:
+"""Introduction to color spaces in OpenCV"""
 import cv2
 import matplotlib.pyplot as plt
-
-
-def show_with_matplotlib(color_img, title, pos):
-    """Shows an image using matplotlib capabilities"""
-
-    # Convert BGR image to RGB:
-    img_RGB = color_img[:, :, ::-1]
-
-    ax = plt.subplot(3, 6, pos)
-    plt.imshow(img_RGB)
-    plt.title(title)
-    plt.axis('off')
+from Utils import show_image
 
 image = cv2.imread('../images/color_spaces.png')
-
-# create a figure() object with appropriate size and title:
-plt.figure(figsize=(12, 5))
-plt.suptitle("Color spaces in OpenCV", fontsize=14, fontweight='bold')
 
 # Convert to grayscale:
 gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -46,36 +27,25 @@ ycrcb_image = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)
 lab_image = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
 (lab_l, lab_a, lab_b) = cv2.split(lab_image)
 
-# Show all the created components:
-show_with_matplotlib(image, "BGR - image", 1)
+image_BGR_list = [image, cv2.cvtColor(gray_image, cv2.COLOR_GRAY2BGR),
+                   cv2.cvtColor(bgr_b, cv2.COLOR_GRAY2BGR), cv2.cvtColor(bgr_g, cv2.COLOR_GRAY2BGR), cv2.cvtColor(bgr_r, cv2.COLOR_GRAY2BGR),
+                   cv2.cvtColor(hsv_h, cv2.COLOR_GRAY2BGR), cv2.cvtColor(hsv_s, cv2.COLOR_GRAY2BGR), cv2.cvtColor(hsv_v, cv2.COLOR_GRAY2BGR),
+                   cv2.cvtColor(hls_h, cv2.COLOR_GRAY2BGR), cv2.cvtColor(hls_l, cv2.COLOR_GRAY2BGR), cv2.cvtColor(hls_s, cv2.COLOR_GRAY2BGR),
+                   cv2.cvtColor(ycrcb_y, cv2.COLOR_GRAY2BGR), cv2.cvtColor(ycrcb_cr, cv2.COLOR_GRAY2BGR), cv2.cvtColor(ycrcb_cb, cv2.COLOR_GRAY2BGR),
+                   cv2.cvtColor(lab_l, cv2.COLOR_GRAY2BGR), cv2.cvtColor(lab_a, cv2.COLOR_GRAY2BGR), cv2.cvtColor(lab_b, cv2.COLOR_GRAY2BGR)]
 
-# Show gray image:
-show_with_matplotlib(cv2.cvtColor(gray_image, cv2.COLOR_GRAY2BGR), "gray image", 1 + 6)
+title_list = ["BGR - image", "gray image", 
+              "BGR - B comp", "BGR - G comp", "BGR - R comp",
+              "HSV - H comp", "HSV - S comp", "HSV - V comp",
+              "HLS - H comp", "HLS - L comp", "HLS - S comp",
+              "YCrCb - Y comp", "YCrCb - Cr comp", "YCrCb - Cb comp",
+              "L*a*b - L comp", "L*a*b - a comp", "L*a*b - b comp"]
 
-# Show bgr components:
-show_with_matplotlib(cv2.cvtColor(bgr_b, cv2.COLOR_GRAY2BGR), "BGR - B comp", 2)
-show_with_matplotlib(cv2.cvtColor(bgr_g, cv2.COLOR_GRAY2BGR), "BGR - G comp", 2 + 6)
-show_with_matplotlib(cv2.cvtColor(bgr_r, cv2.COLOR_GRAY2BGR), "BGR - R comp", 2 + 6 * 2)
+pos_list = [1, 1 + 6, 
+            2, 2 + 6, 2 + 6 * 2,
+            3, 3 + 6, 3 + 6 * 2,
+            4, 4 + 6, 4 + 6 * 2,
+            5, 5 + 6, 5 + 6 * 2,
+            6, 6 + 6, 6 + 6 * 2]
 
-# Show hsv components:
-show_with_matplotlib(cv2.cvtColor(hsv_h, cv2.COLOR_GRAY2BGR), "HSV - H comp", 3)
-show_with_matplotlib(cv2.cvtColor(hsv_s, cv2.COLOR_GRAY2BGR), "HSV - S comp", 3 + 6)
-show_with_matplotlib(cv2.cvtColor(hsv_v, cv2.COLOR_GRAY2BGR), "HSV - V comp", 3 + 6 * 2)
-
-# Show hls components:
-show_with_matplotlib(cv2.cvtColor(hls_h, cv2.COLOR_GRAY2BGR), "HLS - H comp", 4)
-show_with_matplotlib(cv2.cvtColor(hls_l, cv2.COLOR_GRAY2BGR), "HLS - L comp", 4 + 6)
-show_with_matplotlib(cv2.cvtColor(hls_s, cv2.COLOR_GRAY2BGR), "HLS - S comp", 4 + 6 * 2)
-
-# Show ycrcb components:
-show_with_matplotlib(cv2.cvtColor(ycrcb_y, cv2.COLOR_GRAY2BGR), "YCrCb - Y comp", 5)
-show_with_matplotlib(cv2.cvtColor(ycrcb_cr, cv2.COLOR_GRAY2BGR), "YCrCb - Cr comp", 5 + 6)
-show_with_matplotlib(cv2.cvtColor(ycrcb_cb, cv2.COLOR_GRAY2BGR), "YCrCb - Cb comp", 5 + 6 * 2)
-
-# Show lab components:
-show_with_matplotlib(cv2.cvtColor(lab_l, cv2.COLOR_GRAY2BGR), "L*a*b - L comp", 6)
-show_with_matplotlib(cv2.cvtColor(lab_a, cv2.COLOR_GRAY2BGR), "L*a*b - a comp", 6 + 6)
-show_with_matplotlib(cv2.cvtColor(lab_b, cv2.COLOR_GRAY2BGR), "L*a*b - b comp", 6 + 6 * 2)
-
-# Show the created image:
-plt.show()
+show_image.show_images_with_titles_and_positions(image_BGR_list, title_list, pos_list, "Color spaces in OpenCV", 6)
