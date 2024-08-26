@@ -1,21 +1,8 @@
-"""
-Sobel operator example in order to see how this operator works and how cv2.addWeighted() can be used
-"""
+"""Sobel operator example in order to see how this operator works and how cv2.addWeighted() can be used"""
 import cv2
 import matplotlib.pyplot as plt
 from Utils import show_image
 
-
-def show_with_matplotlib(color_img, title, pos):
-    """Shows an image using matplotlib capabilities"""
-
-    # Convert BGR image to RGB
-    img_RGB = color_img[:, :, ::-1]
-
-    ax = plt.subplot(1, 4, pos)
-    plt.imshow(img_RGB)
-    plt.title(title)
-    plt.axis('off')
 
 
 image = cv2.imread('../images/wukong.jpg')

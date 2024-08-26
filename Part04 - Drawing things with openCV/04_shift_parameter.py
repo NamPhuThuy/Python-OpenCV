@@ -1,23 +1,8 @@
-"""
-Example to show the shift parameter
-"""
-
-# Import required packages:
+"""Example to show the shift parameter"""
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-
-
-def show_with_matplotlib(img, title):
-    """Shows an image using matplotlib capabilities"""
-
-    # Convert BGR image to RGB:
-    img_RGB = img[:, :, ::-1]
-
-    # Show the image using matplotlib:
-    plt.imshow(img_RGB)
-    plt.title(title)
-    plt.show()
+from Utils import show_image
 
 
 def draw_float_circle(img, center, radius, color, thickness=1, lineType=8, shift=4):
@@ -49,4 +34,4 @@ draw_float_circle(image, (299.99, 299.99), 300, colors['blue'], 1, 8, 2)
 draw_float_circle(image, (299.999, 299.999), 300, colors['yellow'], 1, 8, 3)
 
 # Show image:
-show_with_matplotlib(image, 'cv2.circle()')
+show_image.show_with_matplotlib(image, 'cv2.circle()')

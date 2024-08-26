@@ -2,16 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 from Utils import constant_colors
-
-
-def show_with_matplotlib(img, title):
-    # Convert BGR image to RGB:
-    img_RGB = img[:, :, ::-1]
-
-    # Show the image using matplotlib:
-    plt.imshow(img_RGB)
-    plt.title(title)
-    plt.show()
+from Utils import show_image
 
     
 def cliplines_example():
@@ -37,7 +28,7 @@ def cliplines_example():
     if ret:
         cv2.line(image, p1, p2, constant_colors.YELLOW, 3)
     
-    show_with_matplotlib(image, 'cv2.clipLine()')
+    show_image.show_with_matplotlib(image, 'cv2.clipLine()')
     image[:] = constant_colors.LIGHT_GRAY
     
 def arrowedLine_example():
@@ -45,8 +36,8 @@ def arrowedLine_example():
     cv2.arrowedLine(image, (50, 50), (200, 50), constant_colors.RED, 3, 8, 0, 0.1)
     cv2.arrowedLine(image, (50, 120), (200, 120), constant_colors.GREEN, 3, cv2.LINE_AA, 0, 0.3)
     cv2.arrowedLine(image, (50, 200), (200, 200), constant_colors.BLUE, 3, 8, 0, 0.3)
-    
-    show_with_matplotlib(image, 'cv2.arrowedLine()')
+
+    show_image.show_with_matplotlib(image, 'cv2.arrowedLine()')
     image[:] = colors['light_gray']
 
 def ellipse_example():    
@@ -59,7 +50,7 @@ def ellipse_example():
     cv2.ellipse(image, (250, 250), (30, 30), 0, 0, 360, constant_colors.MAGENTA, 3)
     cv2.ellipse(image, (250, 100), (20, 40), 45, 0, 360, constant_colors.GRAY, 3)
 
-    show_with_matplotlib(image, 'cv2.ellipse()')
+    show_image.show_with_matplotlib(image, 'cv2.ellipse()')
     image[:] = constant_colors.LIGHT_GRAY
 
 def polylines_example():
@@ -117,8 +108,8 @@ def polylines_example():
     print("shape of pts '{}'".format(pts.shape))
     # Draw this polygon with False option:
     cv2.polylines(image, [pts], False, constant_colors.YELLOW, 3)
-    
-    show_with_matplotlib(image, 'cv2.polylines()')
+
+    show_image.show_with_matplotlib(image, 'cv2.polylines()')
     image[:] = constant_colors.LIGHT_GRAY
     
 def circle_polygon_example():
@@ -142,7 +133,7 @@ def circle_polygon_example():
     cv2.polylines(image, [pts], True, constant_colors.GREEN, 5)
     
     # Show image:
-    show_with_matplotlib(image, 'polygon with the shape of a circle using 12 points')
+    show_image.show_with_matplotlib(image, 'polygon with the shape of a circle using 12 points')
 
 if __name__ == "__main__":
     image = np.zeros((300, 300, 3), dtype="uint8")

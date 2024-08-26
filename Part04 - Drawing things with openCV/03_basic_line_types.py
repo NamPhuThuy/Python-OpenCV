@@ -1,17 +1,7 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-
-
-def show_with_matplotlib(img, title):
-    # Convert BGR image to RGB:
-    img_RGB = img[:, :, ::-1]
-
-    # Show the image using matplotlib:
-    plt.imshow(img_RGB)
-    plt.title(title)
-    plt.show()
-
+from Utils import show_image
 
 # Dictionary containing some colors:
 colors = {'blue': (255, 0, 0), 'green': (0, 255, 0), 'red': (0, 0, 255), 'yellow': (0, 255, 255),
@@ -26,7 +16,7 @@ def line_types_example():
     cv2.line(image, (0, 5), (15, 20), colors['green'], 1, cv2.LINE_8)
 
     # Show image:
-    show_with_matplotlib(image, 'LINE_4    LINE_AA    LINE_8')
+    show_image.show_with_matplotlib(image, 'LINE_4    LINE_AA    LINE_8')
 
 if __name__ == "__main__":
     image = np.zeros((20, 20, 3), dtype="uint8")
