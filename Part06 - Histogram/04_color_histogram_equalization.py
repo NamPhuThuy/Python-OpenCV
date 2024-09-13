@@ -60,7 +60,8 @@ plt.figure(figsize=(18, 14))
 plt.suptitle("Color histogram equalization with cv2.equalizeHist() - not a good approach", fontsize=14, fontweight='bold')
 
 # Load the original image and convert it to grayscale
-image = cv2.imread('lenna.png')
+image = cv2.imread('../images/lenna.png')
+image = cv2.imread('../images/16x16pixels.png')
 
 # Calculate the histogram for this BGR image:
 hist_color = hist_color_img(image)

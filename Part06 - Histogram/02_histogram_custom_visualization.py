@@ -1,12 +1,8 @@
-"""
-Custom visualization of histograms
-"""
-
-# Import required packages:
+"""Custom visualization of histograms"""
 import numpy as np
 import cv2
 from matplotlib import pyplot as plt
-
+from Utils import show_image
 
 def show_img_with_matplotlib(color_img, title, pos):
     """Shows an image using matplotlib capabilities"""
@@ -111,6 +107,13 @@ show_hist_with_matplotlib_gray(hist, "grayscale histogram (matplotlib)", 2, 'm')
 show_hist_with_matplotlib_rgb(hist_color, "color histogram (matplotlib)", 3, ['b', 'g', 'r'])
 show_img_with_matplotlib(gray_plot, "grayscale histogram (custom)", 5)
 show_img_with_matplotlib(color_plot, "color histogram (custom)", 6)
+
+# image_BGR_list = [cv2.cvtColor(gray_image, cv2.COLOR_GRAY2BGR), image]
+# title_list = ["gray", "image"]
+# pos_list = [1, 2]
+# 
+# show_image.show_images_with_titles_and_positions(image_BGR_list, title_list, pos_list, "Custom visualization of histograms", 2)
+
 
 # Show the Figure:
 plt.show()

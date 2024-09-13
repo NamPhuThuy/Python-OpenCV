@@ -1,11 +1,8 @@
-"""
-Introduction to grayscale histogram equalization
-"""
-
-# Import required packages:
+"""Introduction to grayscale histogram equalization"""
 import numpy as np
 import cv2
 from matplotlib import pyplot as plt
+from Utils import show_image
 
 
 def show_img_with_matplotlib(color_img, title, pos):

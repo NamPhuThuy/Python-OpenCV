@@ -4,12 +4,18 @@ import matplotlib.pyplot as plt
 from Utils import show_image
 
 image = cv2.imread('../images/color_spaces.png')
+cv2.imshow('image', image)
 
 # Convert to grayscale:
 gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 # Get the b, g, and r components from the loaded image:
 (bgr_b, bgr_g, bgr_r) = cv2.split(image)
+cv2.imshow('BGR - B', bgr_b)
+# cv2.imshow('BGR - G', bgr_g)
+# cv2.imshow('BGR - R', bgr_r)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 # Convert to HSV and get the components:
 hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)

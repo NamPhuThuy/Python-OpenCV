@@ -10,7 +10,7 @@ def show_with_matplotlib(img_BGR, title):
     plt.title(title)
     plt.show()
 
-def show_images_with_titles_and_positions(image_BGR_list, title_list, pos_list, big_title, colsNum = 4):
+def show_images_with_titles_and_positions(image_BGR_list, title_list, pos_list, big_title, colsNum = 4, xLabel = 'x axis', yLabel = 'y axis'):
     """
     Displays a list of images with specified titles and positions using Matplotlib subplots.
 
@@ -18,9 +18,6 @@ def show_images_with_titles_and_positions(image_BGR_list, title_list, pos_list, 
         image_BGR_list: A list of NumPy image arrays.
         title_list: A list of titles for each image (optional).
         pos_list: A list of subplot positions (optional).
-
-    Returns:
-        None
     """
 
     # Create the dimensions of the figure and set title:
@@ -36,14 +33,24 @@ def show_images_with_titles_and_positions(image_BGR_list, title_list, pos_list, 
         pos_list = range(1, num_images + 1)
     
     rowsNum = int(np.ceil(num_images / colsNum))
+    print("Row number:", rowsNum, "Column number:", colsNum)
 
     # Add images to the plot 
     for i, (image_BGR, title, pos) in enumerate(zip(image_BGR_list, title_list, pos_list)):
+        print("Debug: ", i)
         image_RGB = image_BGR[:, :, ::-1]
-        plt.subplot(rowsNum, colsNum, pos)
+        print("Debug: 00")
+        
+        
         plt.imshow(image_RGB)
+        print("Debug: 1")
+        
         plt.title(title)
+        print("Debug: 2")
+        plt.subplot(rowsNum, colsNum, pos)
+        print("Debug: 3")
         plt.axis('off')
+        print("Debug: show complete")
 
     plt.tight_layout()
     plt.show()
